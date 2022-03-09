@@ -10,8 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_09_132206) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "roomid"
+    t.string "owner"
+    t.datetime "opened", precision: nil
+    t.datetime "closed", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.integer "roomid"
+    t.datetime "started", precision: nil
+    t.datetime "finished", precision: nil
+    t.string "started_by"
+    t.string "cardset"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
