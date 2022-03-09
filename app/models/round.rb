@@ -1,3 +1,4 @@
 class Round < ApplicationRecord
-  belongs_to :room, foreign_key: :roomid
+  belongs_to :room
+  has_many :votes
 end
