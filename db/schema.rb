@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_09_145510) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_09_161555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_145510) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deck_id"], name: "index_cards_on_deck_id"
+  end
+
+  create_table "deck_assignments", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "deck_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deck_id"], name: "index_deck_assignments_on_deck_id"
+    t.index ["room_id"], name: "index_deck_assignments_on_room_id", unique: true
   end
 
   create_table "decks", force: :cascade do |t|
@@ -59,6 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_09_145510) do
     t.index ["round_id"], name: "index_votes_on_round_id"
   end
 
+  add_foreign_key "deck_assignments", "decks"
+  add_foreign_key "deck_assignments", "rooms"
   add_foreign_key "rooms", "decks"
   add_foreign_key "rounds", "rooms"
 end
