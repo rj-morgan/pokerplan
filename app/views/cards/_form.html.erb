@@ -1,0 +1,17 @@
+<h2>Deck: <%= @card&.deck&.name %></h2>
+<%= form_for @card do |card_form| %>
+<%= card_form.hidden_field :deck_id, value: @card.deck_id %>
+  <table>
+    <tr>
+      <td><%= card_form.label :value %> &nbsp; </td>
+      <td><%= card_form.text_field :value,  value: @card.value %></td>
+    </tr>
+    <tr>
+      <td><%= card_form.label :unit %> &nbsp; </td>
+      <td><%= card_form.text_field :unit, value: @card.unit %></td>
+    </tr>
+  </table>
+  <p>
+    <%= card_form.submit "Save" %>
+  </p>
+<% end %>

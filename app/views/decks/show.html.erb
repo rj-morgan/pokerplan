@@ -2,3 +2,4 @@
 <p><%= pluralize(@deck.cards.count, 'card' ) %></p>
 <p><%= link_to 'Edit', edit_deck_path(@deck) %></p>
 <p><%= link_to 'Back to list', decks_path %></p>
+<%= render('/cards/list', deck_id: @deck.id, cards: @deck.cards)%>
