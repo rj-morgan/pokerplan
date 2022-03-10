@@ -1,2 +1,25 @@
-<h1>Decks#index</h1>
-<p>Find me in app/views/decks/index.html.erb</p>
+<h1>Decks</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of cards</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @decks.each do |deck| %>
+      <tr>
+        <td><%= deck.name %></td>
+        <td><%= deck.cards.count %></td>
+        <td><%= link_to 'Show', deck %></td>
+        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
+        <td><%= link_to "Delete", deck, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New deck', new_deck_path %>
