@@ -1,0 +1,17 @@
+<h2>Cards</h2>
+<%= link_to('Add card', new_card_path(deck_id: @deck)) %>
+<table>
+  <tr>
+    <th>Value</th>
+    <th>Unit</th>
+    <th>Actions</th>
+  </tr>
+<% cards.each do |card| %>
+  <tr>
+    <td><%= card.significant_value %></td>
+    <td><%= card.unit %></td>
+    <td><%= link_to 'Edit', edit_card_path(card) %></td>
+    <td><%= link_to 'Delete', card_path(card, deck_id: @deck.id), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }%></td>
+  </tr>
+<% end %>
+</table>

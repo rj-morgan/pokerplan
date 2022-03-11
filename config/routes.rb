@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :cards
-  resources :decks
+  resources :decks do
+    resources :cards
+  end
   resources :rooms
   resources :rounds
   resources :votes

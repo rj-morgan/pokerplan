@@ -14,7 +14,16 @@ class Card < ApplicationRecord
     if value.zero?
       unit
     else
-      "#{value} #{unit}"
+      "#{significant_value} #{unit}"
+    end
+  end
+
+  # strip insignificant trailing zeros and stringify
+  def significant_value
+    if value.to_i == value
+      value.to_s.delete_suffix('.0')
+    else
+      value.to_s
     end
   end
 
