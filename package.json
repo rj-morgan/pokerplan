@@ -1,0 +1,7 @@
+{
+  "name": "poker-plan",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap-icons": "^1.8.1"
+  }
+}

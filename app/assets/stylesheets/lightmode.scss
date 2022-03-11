@@ -1,0 +1,11 @@
+// IMPORTANT: make a sandwich!
+@import "flatly/variables";
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+@import "flatly/bootswatch";
+
+.sitename {
+  color: blue;
+}
